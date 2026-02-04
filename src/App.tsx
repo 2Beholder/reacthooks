@@ -33,12 +33,12 @@ function AppContent() {
     <div className={`app ${theme}`}>
       <header className="app-header">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h1>⚛️ React Hooks Workshop</h1>
+          <h1>⚛️ React Hooks 工作坊</h1>
         </Link>
         <nav className="nav-links">
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/" end>首页</NavLink>
           <button onClick={toggleTheme}>
-            {theme === 'light' ? '🌙' : '☀️'} Toggle Theme
+            {theme === 'light' ? '🌙' : '☀️'} 切换主题
           </button>
         </nav>
       </header>

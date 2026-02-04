@@ -61,43 +61,43 @@ export default function UseMemoCallbackPage() {
 
   return (
     <div className="demo-page">
-      <h1>useMemo & useCallback Demo</h1>
+      <h1>useMemo & useCallback 演示</h1>
       <p className="description">
-        useMemo and useCallback optimize performance by memoizing values and functions, preventing unnecessary recalculations and re-renders.
+        useMemo 和 useCallback 通过缓存值和函数来优化性能，防止不必要的重新计算和重新渲染。
       </p>
 
       <section className="demo-box">
-        <h2>Example 1: useMemo - Expensive Calculation</h2>
+        <h2>示例 1：useMemo - 昂贵的计算</h2>
         <div className="demo-content">
           <div className="stats">
-            <p><strong>Sum without memo:</strong> {sumWithoutMemo()}</p>
-            <p><strong>Sum with memo:</strong> {sumWithMemo}</p>
+            <p><strong>无缓存的总和：</strong> {sumWithoutMemo()}</p>
+            <p><strong>有缓存的总和：</strong> {sumWithMemo}</p>
           </div>
           <div className="controls">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type to trigger re-render..."
+              placeholder="输入以触发重新渲染..."
             />
           </div>
-          <p className="tip">💡 Check console - memoized calculation only runs when dependencies change</p>
+          <p className="tip">💡 查看控制台 - 缓存的计算仅在依赖改变时运行</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Example 2: useCallback + React.memo</h2>
+        <h2>示例 2：useCallback + React.memo</h2>
         <div className="demo-content">
           <div className="comparison">
             <div>
-              <h3>Without useCallback</h3>
+              <h3>不使用 useCallback</h3>
               <NormalChild value={count} onClick={handleClickWithoutCallback} />
-              <p className="tip">⚠️ Re-renders every time parent renders</p>
+              <p className="tip">⚠️ 每次父组件渲染都会重新渲染</p>
             </div>
             <div>
-              <h3>With useCallback + memo</h3>
+              <h3>使用 useCallback + memo</h3>
               <ExpensiveChild value={count} onClick={handleClickWithCallback} />
-              <p className="tip">✅ Only re-renders when value changes</p>
+              <p className="tip">✅ 仅在 value 改变时重新渲染</p>
             </div>
           </div>
           <div className="controls">
@@ -105,21 +105,21 @@ export default function UseMemoCallbackPage() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type to trigger parent re-render..."
+              placeholder="输入以触发父组件重新渲染..."
             />
-            <button onClick={() => setCount(count + 1)}>Increment Count</button>
+            <button onClick={() => setCount(count + 1)}>增加计数</button>
           </div>
         </div>
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>useMemo:</strong> Memoizes a computed value - <code>useMemo(() =&gt; expensive(), [deps])</code></li>
-          <li><strong>useCallback:</strong> Memoizes a function - <code>useCallback(() =&gt; fn(), [deps])</code></li>
-          <li><strong>React.memo:</strong> Higher-order component that prevents re-renders when props haven't changed</li>
-          <li><strong>When to use:</strong> For expensive calculations, preventing unnecessary re-renders of child components</li>
-          <li><strong>Don't overuse:</strong> Premature optimization can make code harder to read. Profile first!</li>
+          <li><strong>useMemo：</strong> 缓存计算值 - <code>useMemo(() =&gt; expensive(), [deps])</code></li>
+          <li><strong>useCallback：</strong> 缓存函数 - <code>useCallback(() =&gt; fn(), [deps])</code></li>
+          <li><strong>React.memo：</strong> 高阶组件，当 props 未改变时防止重新渲染</li>
+          <li><strong>何时使用：</strong> 用于昂贵的计算、防止子组件不必要的重新渲染</li>
+          <li><strong>不要过度使用：</strong> 过早优化会使代码更难阅读。先进行性能分析！</li>
         </ul>
       </section>
     </div>

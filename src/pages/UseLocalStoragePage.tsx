@@ -24,94 +24,94 @@ export default function UseLocalStoragePage() {
 
   return (
     <div className="demo-page">
-      <h1>useLocalStorage Demo</h1>
+      <h1>useLocalStorage 示例</h1>
       <p className="description">
-        useLocalStorage syncs state with localStorage, persisting data across browser sessions. Perfect for user preferences, drafts, and other data that should survive page reloads.
+        useLocalStorage 将状态与 localStorage 同步，使数据在浏览器会话之间持久化。非常适合用于用户偏好设置、草稿和其他需要在页面重新加载后保留的数据。
       </p>
 
       <section className="demo-box">
-        <h2>Example 1: Theme Preference</h2>
+        <h2>示例 1：主题偏好</h2>
         <div className="demo-content">
           <div className="preference-selector">
-            <p>Current preference: <strong>{themePreference}</strong></p>
+            <p>当前偏好：<strong>{themePreference}</strong></p>
             <div className="button-group">
               <button
                 className={themePreference === 'system' ? 'active' : ''}
                 onClick={() => setThemePreference('system')}
               >
-                System
+                跟随系统
               </button>
               <button
                 className={themePreference === 'light' ? 'active' : ''}
                 onClick={() => setThemePreference('light')}
               >
-                Light
+                浅色
               </button>
               <button
                 className={themePreference === 'dark' ? 'active' : ''}
                 onClick={() => setThemePreference('dark')}
               >
-                Dark
+                深色
               </button>
             </div>
           </div>
-          <p className="tip">💡 Refresh the page - your preference persists!</p>
+          <p className="tip">💡 刷新页面 - 你的偏好设置会保留！</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Example 2: Draft Persistence</h2>
+        <h2>示例 2：草稿持久化</h2>
         <div className="demo-content">
           <div className="form-group">
-            <label htmlFor="draft">Write your draft:</label>
+            <label htmlFor="draft">编写草稿：</label>
             <textarea
               id="draft"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
-              placeholder="Your draft is automatically saved..."
+              placeholder="你的草稿会自动保存..."
               rows={5}
             />
-            <p className="meta">Characters: {draft.length}</p>
+            <p className="meta">字符数：{draft.length}</p>
           </div>
-          <button onClick={() => setDraft('')}>Clear Draft</button>
-          <p className="tip">💡 Try typing, then refresh - your draft is saved!</p>
+          <button onClick={() => setDraft('')}>清空草稿</button>
+          <p className="tip">💡 试着输入一些内容，然后刷新 - 你的草稿已保存！</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Example 3: State Comparison</h2>
+        <h2>示例 3：状态对比</h2>
         <div className="demo-content">
           <div className="comparison">
             <div>
-              <h3>With localStorage</h3>
+              <h3>使用 localStorage</h3>
               <div className="counter-display">
                 <span className="count-value">{count}</span>
               </div>
               <div className="button-group">
                 <button onClick={() => setCount(count - 1)}>-</button>
-                <button onClick={() => setCount(0)}>Reset</button>
+                <button onClick={() => setCount(0)}>重置</button>
                 <button onClick={() => setCount(count + 1)}>+</button>
               </div>
-              <p className="tip">✅ Persists after refresh</p>
+              <p className="tip">✅ 刷新后会保留</p>
             </div>
             <div>
-              <h3>Regular useState</h3>
+              <h3>普通 useState</h3>
               <div className="counter-display">
                 <span className="count-value">{regularState}</span>
               </div>
               <div className="button-group">
                 <button onClick={() => setRegularState(regularState - 1)}>-</button>
-                <button onClick={() => setRegularState(0)}>Reset</button>
+                <button onClick={() => setRegularState(0)}>重置</button>
                 <button onClick={() => setRegularState(regularState + 1)}>+</button>
               </div>
-              <p className="tip">⚠️ Resets on refresh</p>
+              <p className="tip">⚠️ 刷新后会重置</p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Implementation</h2>
+        <h2>实现方式</h2>
         <div className="demo-content">
           <pre className="code-block">{`import { useState, useEffect } from 'react';
 
@@ -145,16 +145,16 @@ const [name, setName] = useLocalStorage('name', 'Guest');`}</pre>
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>Persistence:</strong> Data survives page reloads and browser restarts</li>
-          <li><strong>Serialization:</strong> Uses JSON.stringify/parse to store complex objects</li>
-          <li><strong>Storage limit:</strong> localStorage typically has 5-10MB limit per domain</li>
-          <li><strong>Error handling:</strong> Wrap in try-catch for private browsing mode</li>
-          <li><strong>Common uses:</strong> User preferences, form drafts, cached data, UI state</li>
+          <li><strong>持久化：</strong>数据在页面重新加载和浏览器重启后仍然保留</li>
+          <li><strong>序列化：</strong>使用 JSON.stringify/parse 存储复杂对象</li>
+          <li><strong>存储限制：</strong>localStorage 通常每个域名有 5-10MB 的限制</li>
+          <li><strong>错误处理：</strong>使用 try-catch 包裹以处理隐私浏览模式</li>
+          <li><strong>常见用途：</strong>用户偏好设置、表单草稿、缓存数据、UI 状态</li>
         </ul>
         <button onClick={clearAllStorage} className="danger-btn">
-          Clear All localStorage & Reload
+          清空所有 localStorage 并重新加载
         </button>
       </section>
     </div>

@@ -5,54 +5,54 @@ export default function UseContextPage() {
 
   return (
     <div className="demo-page">
-      <h1>useContext Demo</h1>
+      <h1>useContext 演示</h1>
       <p className="description">
-        useContext provides a way to pass data through the component tree without having to pass props manually at every level.
+        useContext 提供了一种通过组件树传递数据的方法，无需在每个层级手动传递 props。
       </p>
 
       <section className="demo-box">
-        <h2>Theme Switcher</h2>
+        <h2>主题切换器</h2>
         <div className="demo-content">
           <div className={`theme-preview ${theme}`}>
-            <p>Current theme: <strong>{theme}</strong></p>
+            <p>当前主题：<strong>{theme === 'light' ? '浅色' : '深色'}</strong></p>
             <button onClick={toggleTheme}>
-              Toggle to {theme === 'light' ? 'dark' : 'light'} mode
+              切换到 {theme === 'light' ? '深色' : '浅色'} 模式
             </button>
           </div>
-          <p className="tip">💡 This theme is persisted in localStorage and shared across the entire app!</p>
+          <p className="tip">💡 此主题保存在 localStorage 中，并在整个应用中共享！</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>How It Works</h2>
+        <h2>工作原理</h2>
         <div className="demo-content">
           <div className="code-example">
-            <h3>1. Create Context</h3>
+            <h3>1. 创建 Context</h3>
             <pre>{`const ThemeContext = createContext();`}</pre>
 
-            <h3>2. Provide Context</h3>
+            <h3>2. 提供 Context</h3>
             <pre>{`<ThemeContext.Provider value={{ theme, toggleTheme }}>
   {children}
 </ThemeContext.Provider>`}</pre>
 
-            <h3>3. Consume Context</h3>
+            <h3>3. 使用 Context</h3>
             <pre>{`const { theme, toggleTheme } = useContext(ThemeContext);`}</pre>
           </div>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Optimization Tips</h2>
+        <h2>优化技巧</h2>
         <div className="demo-content">
           <div className="tips-list">
             <div className="tip-item">
-              <h4>✅ Memoize Context Value</h4>
-              <p>Use useMemo to prevent unnecessary re-renders when context value changes</p>
+              <h4>✅ 缓存 Context 值</h4>
+              <p>使用 useMemo 防止 context 值改变时不必要的重新渲染</p>
               <pre>{`const value = useMemo(() => ({ theme, toggleTheme }), [theme]);`}</pre>
             </div>
             <div className="tip-item">
-              <h4>✅ Split Contexts</h4>
-              <p>Split frequently changing values into separate contexts</p>
+              <h4>✅ 拆分 Context</h4>
+              <p>将频繁变化的值拆分到单独的 context 中</p>
               <pre>{`<ThemeContext.Provider>
   <UserContext.Provider>
     {children}
@@ -60,8 +60,8 @@ export default function UseContextPage() {
 </ThemeContext.Provider>`}</pre>
             </div>
             <div className="tip-item">
-              <h4>✅ Custom Hook</h4>
-              <p>Create a custom hook to enforce usage within provider</p>
+              <h4>✅ 自定义 Hook</h4>
+              <p>创建自定义 hook 以强制在 provider 内使用</p>
               <pre>{`function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('...');
@@ -73,13 +73,13 @@ export default function UseContextPage() {
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>Purpose:</strong> Share data across component tree without prop drilling</li>
-          <li><strong>Syntax:</strong> <code>const value = useContext(MyContext)</code></li>
-          <li><strong>Re-renders:</strong> Components using context re-render when context value changes</li>
-          <li><strong>Optimization:</strong> Memoize context value and split contexts for better performance</li>
-          <li><strong>Not for everything:</strong> Don't overuse - consider component composition first</li>
+          <li><strong>目的：</strong> 在组件树中共享数据，无需层层传递 props</li>
+          <li><strong>语法：</strong> <code>const value = useContext(MyContext)</code></li>
+          <li><strong>重新渲染：</strong> 使用 context 的组件会在 context 值改变时重新渲染</li>
+          <li><strong>优化：</strong> 缓存 context 值并拆分 context 以获得更好的性能</li>
+          <li><strong>不要过度使用：</strong> 不要滥用 - 首先考虑组件组合</li>
         </ul>
       </section>
     </div>

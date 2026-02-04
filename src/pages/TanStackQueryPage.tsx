@@ -66,28 +66,28 @@ export default function TanStackQueryPage() {
 
   return (
     <div className="demo-page">
-      <h1>TanStack Query Demo</h1>
+      <h1>TanStack Query 示例</h1>
       <p className="description">
-        TanStack Query (formerly React Query) provides powerful data fetching with built-in caching, loading states, error handling, and more.
+        TanStack Query（原 React Query）提供了强大的数据获取功能，内置缓存、加载状态、错误处理等。
       </p>
 
       <section className="demo-box">
-        <h2>Users List</h2>
+        <h2>用户列表</h2>
         <div className="demo-content">
           <div className="query-status">
-            <p>Status: <strong>{usersQuery.status}</strong></p>
-            <p>Is Loading: <strong>{usersQuery.isLoading ? 'Yes' : 'No'}</strong></p>
-            <p>Is Error: <strong>{usersQuery.isError ? 'Yes' : 'No'}</strong></p>
-            <p>Is Stale: <strong>{usersQuery.isStale ? 'Yes' : 'No'}</strong></p>
+            <p>状态：<strong>{usersQuery.status}</strong></p>
+            <p>正在加载：<strong>{usersQuery.isLoading ? '是' : '否'}</strong></p>
+            <p>有错误：<strong>{usersQuery.isError ? '是' : '否'}</strong></p>
+            <p>数据过时：<strong>{usersQuery.isStale ? '是' : '否'}</strong></p>
           </div>
 
           {usersQuery.isLoading && (
-            <div className="loading">Loading users...</div>
+            <div className="loading">正在加载用户...</div>
           )}
 
           {usersQuery.isError && (
             <div className="error">
-              Error: {usersQuery.error instanceof Error ? usersQuery.error.message : 'Unknown error'}
+              错误：{usersQuery.error instanceof Error ? usersQuery.error.message : '未知错误'}
             </div>
           )}
 
@@ -101,14 +101,14 @@ export default function TanStackQueryPage() {
                   </div>
                   <div className="user-actions">
                     <button onClick={() => setSelectedUserId(user.id)}>
-                      View Details
+                      查看详情
                     </button>
                     <button
                       onClick={() => handleDelete(user.id)}
                       disabled={deleteMutation.isPending}
                       className="danger-btn"
                     >
-                      Delete
+                      删除
                     </button>
                   </div>
                 </div>
@@ -121,12 +121,12 @@ export default function TanStackQueryPage() {
               onClick={() => usersQuery.refetch()}
               disabled={usersQuery.isFetching}
             >
-              {usersQuery.isFetching ? 'Refetching...' : 'Refetch Users'}
+              {usersQuery.isFetching ? '正在重新获取...' : '重新获取用户'}
             </button>
             <button
               onClick={() => queryClient.invalidateQueries({ queryKey: ['users'] })}
             >
-              Invalidate Cache
+              使缓存失效
             </button>
           </div>
         </div>
@@ -134,78 +134,78 @@ export default function TanStackQueryPage() {
 
       {selectedUserId && (
         <section className="demo-box">
-          <h2>User Details</h2>
+          <h2>用户详情</h2>
           <div className="demo-content">
             <div className="query-status">
-              <p>User ID: <strong>{selectedUserId}</strong></p>
-              <p>Status: <strong>{userQuery.status}</strong></p>
+              <p>用户 ID：<strong>{selectedUserId}</strong></p>
+              <p>状态：<strong>{userQuery.status}</strong></p>
             </div>
 
             {userQuery.isLoading && (
-              <div className="loading">Loading user details...</div>
+              <div className="loading">正在加载用户详情...</div>
             )}
 
             {userQuery.isError && (
               <div className="error">
-                Error: {userQuery.error instanceof Error ? userQuery.error.message : 'Unknown error'}
+                错误：{userQuery.error instanceof Error ? userQuery.error.message : '未知错误'}
               </div>
             )}
 
             {userQuery.isSuccess && (
               <div className="user-details">
-                <p><strong>Name:</strong> {userQuery.data.name}</p>
-                <p><strong>Email:</strong> {userQuery.data.email}</p>
-                <p><strong>ID:</strong> {userQuery.data.id}</p>
+                <p><strong>姓名：</strong>{userQuery.data.name}</p>
+                <p><strong>邮箱：</strong>{userQuery.data.email}</p>
+                <p><strong>ID：</strong>{userQuery.data.id}</p>
               </div>
             )}
 
-            <button onClick={() => setSelectedUserId(null)}>Close</button>
+            <button onClick={() => setSelectedUserId(null)}>关闭</button>
           </div>
         </section>
       )}
 
       <section className="demo-box">
-        <h2>Key Features</h2>
+        <h2>主要特性</h2>
         <div className="demo-content">
           <div className="features-list">
             <div className="feature-item">
-              <h4>🔄 Automatic Caching</h4>
-              <p>Data is cached and reused across components</p>
+              <h4>🔄 自动缓存</h4>
+              <p>数据被缓存并在组件间重用</p>
             </div>
             <div className="feature-item">
-              <h4>⚡ Smart Refetching</h4>
-              <p>Automatically refetch on window focus, network reconnect</p>
+              <h4>⚡ 智能重新获取</h4>
+              <p>在窗口聚焦、网络重连时自动重新获取</p>
             </div>
             <div className="feature-item">
-              <h4>🎯 Loading States</h4>
-              <p>Built-in loading, error, and success states</p>
+              <h4>🎯 加载状态</h4>
+              <p>内置加载、错误和成功状态</p>
             </div>
             <div className="feature-item">
-              <h4>♻️ Stale While Revalidate</h4>
-              <p>Show cached data while fetching fresh data in background</p>
+              <h4>♻️ 过期即重验证</h4>
+              <p>在后台获取新数据时显示缓存数据</p>
             </div>
             <div className="feature-item">
-              <h4>🔀 Mutations</h4>
-              <p>Handle create, update, delete with optimistic updates</p>
+              <h4>🔀 变更操作</h4>
+              <p>处理创建、更新、删除以及乐观更新</p>
             </div>
             <div className="feature-item">
-              <h4>📦 Cache Invalidation</h4>
-              <p>Automatically invalidate and refetch related queries</p>
+              <h4>📦 缓存失效</h4>
+              <p>自动使相关查询失效并重新获取</p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>useQuery:</strong> Fetch and cache data with automatic refetching</li>
-          <li><strong>useMutation:</strong> Perform create/update/delete operations</li>
-          <li><strong>queryKey:</strong> Unique identifier for cached data</li>
-          <li><strong>staleTime:</strong> How long data is considered fresh</li>
-          <li><strong>gcTime:</strong> How long unused data stays in cache (formerly cacheTime)</li>
-          <li><strong>enabled:</strong> Conditionally enable/disable queries</li>
-          <li><strong>Optimistic updates:</strong> Update UI before server confirms</li>
+          <li><strong>useQuery：</strong>获取和缓存数据，支持自动重新获取</li>
+          <li><strong>useMutation：</strong>执行创建/更新/删除操作</li>
+          <li><strong>queryKey：</strong>缓存数据的唯一标识符</li>
+          <li><strong>staleTime：</strong>数据被认为是新鲜的时长</li>
+          <li><strong>gcTime：</strong>未使用的数据在缓存中保留的时长（原 cacheTime）</li>
+          <li><strong>enabled：</strong>有条件地启用/禁用查询</li>
+          <li><strong>乐观更新：</strong>在服务器确认之前更新 UI</li>
         </ul>
       </section>
     </div>

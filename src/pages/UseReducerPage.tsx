@@ -67,23 +67,23 @@ export default function UseReducerPage() {
 
   return (
     <div className="demo-page">
-      <h1>useReducer Demo</h1>
+      <h1>useReducer 演示</h1>
       <p className="description">
-        useReducer is an alternative to useState for managing complex state logic. It's especially useful when the next state depends on the previous one or when you have multiple sub-values.
+        useReducer 是 useState 的替代方案，用于管理复杂的状态逻辑。当下一个状态依赖于前一个状态或有多个子值时特别有用。
       </p>
 
       <section className="demo-box">
-        <h2>Todo App</h2>
+        <h2>Todo 应用</h2>
         <div className="demo-content">
           <form onSubmit={handleSubmit} className="todo-form">
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="What needs to be done?"
+              placeholder="需要做什么？"
               className="todo-input"
             />
-            <button type="submit">Add</button>
+            <button type="submit">添加</button>
           </form>
 
           <div className="todo-filters">
@@ -91,25 +91,25 @@ export default function UseReducerPage() {
               className={filter === 'all' ? 'active' : ''}
               onClick={() => setFilter('all')}
             >
-              All ({stats.total})
+              全部 ({stats.total})
             </button>
             <button
               className={filter === 'active' ? 'active' : ''}
               onClick={() => setFilter('active')}
             >
-              Active ({stats.active})
+              进行中 ({stats.active})
             </button>
             <button
               className={filter === 'completed' ? 'active' : ''}
               onClick={() => setFilter('completed')}
             >
-              Completed ({stats.completed})
+              已完成 ({stats.completed})
             </button>
           </div>
 
           <div className="todo-list">
             {filteredTodos.length === 0 ? (
-              <p className="empty-state">No todos to display</p>
+              <p className="empty-state">暂无待办事项</p>
             ) : (
               filteredTodos.map(todo => (
                 <div key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
@@ -135,20 +135,20 @@ export default function UseReducerPage() {
               onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}
               className="clear-completed"
             >
-              Clear Completed
+              清除已完成
             </button>
           )}
         </div>
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>Syntax:</strong> <code>const [state, dispatch] = useReducer(reducer, initialState)</code></li>
-          <li><strong>Reducer function:</strong> <code>(state, action) =&gt; newState</code></li>
-          <li><strong>When to use:</strong> Complex state logic, multiple sub-values, next state depends on previous</li>
-          <li><strong>vs useState:</strong> useReducer is better for complex state updates with multiple actions</li>
-          <li><strong>Testing:</strong> Reducers are pure functions, making them easy to test</li>
+          <li><strong>语法：</strong> <code>const [state, dispatch] = useReducer(reducer, initialState)</code></li>
+          <li><strong>Reducer 函数：</strong> <code>(state, action) =&gt; newState</code></li>
+          <li><strong>何时使用：</strong> 复杂的状态逻辑、多个子值、下一个状态依赖于前一个状态</li>
+          <li><strong>对比 useState：</strong> useReducer 更适合有多个操作的复杂状态更新</li>
+          <li><strong>测试：</strong> Reducer 是纯函数，易于测试</li>
         </ul>
       </section>
     </div>

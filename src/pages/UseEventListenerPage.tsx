@@ -35,53 +35,53 @@ export default function UseEventListenerPage() {
 
   return (
     <div className="demo-page">
-      <h1>useEventListener Demo</h1>
+      <h1>useEventListener 示例</h1>
       <p className="description">
-        useEventListener provides a clean way to add event listeners that automatically clean up when the component unmounts.
+        useEventListener 提供了一种简洁的方式来添加事件监听器，当组件卸载时会自动清理。
       </p>
 
       <section className="demo-box">
-        <h2>Example 1: Keyboard Shortcuts</h2>
+        <h2>示例 1：键盘快捷键</h2>
         <div className="demo-content">
           <div className="keyboard-display">
-            <p>Last key pressed: <strong>{key || '(none)'}</strong></p>
+            <p>最后按下的键：<strong>{key || '(无)'}</strong></p>
           </div>
           <div className="form-group">
-            <label htmlFor="search">Search:</label>
+            <label htmlFor="search">搜索：</label>
             <input
               ref={searchInputRef}
               id="search"
               type="text"
-              placeholder="Press '/' to focus me, 'Esc' to blur"
+              placeholder="按 '/' 聚焦，按 'Esc' 失焦"
             />
           </div>
           <div className="shortcuts-help">
-            <h4>Keyboard Shortcuts:</h4>
+            <h4>键盘快捷键：</h4>
             <ul>
-              <li><kbd>/</kbd> - Focus search input</li>
-              <li><kbd>Esc</kbd> - Blur focused input</li>
+              <li><kbd>/</kbd> - 聚焦搜索输入框</li>
+              <li><kbd>Esc</kbd> - 失焦已聚焦的输入框</li>
             </ul>
           </div>
-          <p className="tip">💡 Try pressing '/' anywhere on the page!</p>
+          <p className="tip">💡 试着在页面任意位置按 '/' 键！</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Example 2: Click Counter</h2>
+        <h2>示例 2：点击计数器</h2>
         <div className="demo-content">
           <div className="stats">
-            <p>Total clicks on page: <strong>{clickCount}</strong></p>
+            <p>页面总点击次数：<strong>{clickCount}</strong></p>
           </div>
-          <p className="tip">💡 Every click anywhere on the page is counted</p>
+          <p className="tip">💡 页面上任意位置的每次点击都会被计数</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Example 3: Mouse Position</h2>
+        <h2>示例 3：鼠标位置</h2>
         <div className="demo-content">
           <div className="mouse-tracker">
-            <p>X: <strong>{mousePosition.x}</strong></p>
-            <p>Y: <strong>{mousePosition.y}</strong></p>
+            <p>X：<strong>{mousePosition.x}</strong></p>
+            <p>Y：<strong>{mousePosition.y}</strong></p>
             <div
               className="cursor-follower"
               style={{
@@ -90,12 +90,12 @@ export default function UseEventListenerPage() {
               }}
             />
           </div>
-          <p className="tip">💡 Move your mouse to see coordinates update</p>
+          <p className="tip">💡 移动鼠标以查看坐标更新</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Implementation</h2>
+        <h2>实现方式</h2>
         <div className="demo-content">
           <pre className="code-block">{`import { useEffect, useRef } from 'react';
 
@@ -139,13 +139,13 @@ useEventListener('keydown', (event) => {
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>Automatic cleanup:</strong> Removes event listeners on unmount</li>
-          <li><strong>Ref for handler:</strong> Prevents recreating listener on every handler change</li>
-          <li><strong>Type safety:</strong> TypeScript ensures correct event types</li>
-          <li><strong>Common uses:</strong> Keyboard shortcuts, window resize, scroll events, mouse tracking</li>
-          <li><strong>Performance:</strong> Better than adding listeners directly in components</li>
+          <li><strong>自动清理：</strong>组件卸载时自动移除事件监听器</li>
+          <li><strong>使用 Ref 保存处理器：</strong>防止每次处理器变化时重新创建监听器</li>
+          <li><strong>类型安全：</strong>TypeScript 确保事件类型正确</li>
+          <li><strong>常见用途：</strong>键盘快捷键、窗口大小调整、滚动事件、鼠标跟踪</li>
+          <li><strong>性能：</strong>比直接在组件中添加监听器更好</li>
         </ul>
       </section>
     </div>

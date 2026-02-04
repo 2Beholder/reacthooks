@@ -31,35 +31,35 @@ export default function UseDebouncePage() {
 
   return (
     <div className="demo-page">
-      <h1>useDebounce Demo</h1>
+      <h1>useDebounce 示例</h1>
       <p className="description">
-        useDebounce delays updating a value until after a specified time has passed since the last change. Perfect for search inputs to reduce API calls.
+        useDebounce 会延迟更新值，直到最后一次更改后经过指定时间。非常适合用于搜索输入以减少 API 调用。
       </p>
 
       <section className="demo-box">
-        <h2>Search with Debouncing</h2>
+        <h2>防抖搜索</h2>
         <div className="demo-content">
           <div className="search-box">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => handleSearch(e.target.value)}
-              placeholder="Type to search..."
+              placeholder="输入以搜索..."
               className="search-input"
             />
             <div className="search-stats">
-              <p>Keystrokes: <strong>{searchCount}</strong></p>
-              <p>Actual searches: <strong>{debouncedSearchTerm ? 1 : 0}</strong></p>
-              <p>Search term: <strong>{debouncedSearchTerm || '(none)'}</strong></p>
+              <p>按键次数：<strong>{searchCount}</strong></p>
+              <p>实际搜索次数：<strong>{debouncedSearchTerm ? 1 : 0}</strong></p>
+              <p>搜索词：<strong>{debouncedSearchTerm || '(无)'}</strong></p>
             </div>
           </div>
 
           <div className="results">
-            <h3>Results ({results.length})</h3>
+            <h3>结果 ({results.length})</h3>
             {debouncedSearchTerm === '' ? (
-              <p className="empty-state">Start typing to search...</p>
+              <p className="empty-state">开始输入以搜索...</p>
             ) : results.length === 0 ? (
-              <p className="empty-state">No results found</p>
+              <p className="empty-state">未找到结果</p>
             ) : (
               <ul className="results-list">
                 {results.map((item, index) => (
@@ -69,12 +69,12 @@ export default function UseDebouncePage() {
             )}
           </div>
 
-          <p className="tip">💡 Notice how results update only after you stop typing for 500ms</p>
+          <p className="tip">💡 注意结果只在你停止输入 500 毫秒后才会更新</p>
         </div>
       </section>
 
       <section className="demo-box">
-        <h2>Implementation</h2>
+        <h2>实现方式</h2>
         <div className="demo-content">
           <pre className="code-block">{`import { useEffect, useState } from 'react';
 
@@ -103,13 +103,13 @@ const debouncedSearch = useDebounce(searchTerm, 500);`}</pre>
       </section>
 
       <section className="notes">
-        <h3>📝 Key Points:</h3>
+        <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>Purpose:</strong> Delay expensive operations (API calls, filtering, etc.)</li>
-          <li><strong>Performance:</strong> Reduces number of operations significantly</li>
-          <li><strong>User Experience:</strong> Feels more responsive than throttling</li>
-          <li><strong>Common use cases:</strong> Search inputs, form validation, window resize handlers</li>
-          <li><strong>Cleanup:</strong> Always clear timeouts to prevent memory leaks</li>
+          <li><strong>用途：</strong>延迟昂贵的操作（API 调用、过滤等）</li>
+          <li><strong>性能：</strong>显著减少操作次数</li>
+          <li><strong>用户体验：</strong>比节流（throttling）响应更灵敏</li>
+          <li><strong>常见用例：</strong>搜索输入、表单验证、窗口大小调整处理</li>
+          <li><strong>清理：</strong>始终清除定时器以防止内存泄漏</li>
         </ul>
       </section>
     </div>
