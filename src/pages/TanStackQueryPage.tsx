@@ -153,9 +153,9 @@ export default function TanStackQueryPage() {
 
             {userQuery.isSuccess && (
               <div className="user-details">
-                <p><strong>姓名：</strong>{userQuery.data.name}</p>
-                <p><strong>邮箱：</strong>{userQuery.data.email}</p>
-                <p><strong>ID：</strong>{userQuery.data.id}</p>
+                <p><strong>姓名：</strong> {userQuery.data.name}</p>
+                <p><strong>邮箱：</strong> {userQuery.data.email}</p>
+                <p><strong>ID：</strong> {userQuery.data.id}</p>
               </div>
             )}
 
@@ -199,13 +199,13 @@ export default function TanStackQueryPage() {
       <section className="notes">
         <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>useQuery：</strong>获取和缓存数据，支持自动重新获取</li>
-          <li><strong>useMutation：</strong>执行创建/更新/删除操作</li>
-          <li><strong>queryKey：</strong>缓存数据的唯一标识符</li>
-          <li><strong>staleTime：</strong>数据被认为是新鲜的时长</li>
-          <li><strong>gcTime：</strong>未使用的数据在缓存中保留的时长（原 cacheTime）</li>
-          <li><strong>enabled：</strong>有条件地启用/禁用查询</li>
-          <li><strong>乐观更新：</strong>在服务器确认之前更新 UI</li>
+          <li><strong>useQuery：</strong> 获取和缓存数据，支持自动重新获取</li>
+          <li><strong>useMutation：</strong> 执行创建/更新/删除操作</li>
+          <li><strong>queryKey：</strong> 缓存数据的唯一标识符</li>
+          <li><strong>staleTime：</strong> 数据被认为是新鲜的时长</li>
+          <li><strong>gcTime：</strong> 未使用的数据在缓存中保留的时长（原 cacheTime）</li>
+          <li><strong>enabled：</strong> 有条件地启用/禁用查询</li>
+          <li><strong>乐观更新：</strong> 在服务器确认之前更新 UI</li>
         </ul>
       </section>
     </div>

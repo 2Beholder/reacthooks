@@ -147,11 +147,11 @@ const [name, setName] = useLocalStorage('name', 'Guest');`}</pre>
       <section className="notes">
         <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>持久化：</strong>数据在页面重新加载和浏览器重启后仍然保留</li>
-          <li><strong>序列化：</strong>使用 JSON.stringify/parse 存储复杂对象</li>
-          <li><strong>存储限制：</strong>localStorage 通常每个域名有 5-10MB 的限制</li>
-          <li><strong>错误处理：</strong>使用 try-catch 包裹以处理隐私浏览模式</li>
-          <li><strong>常见用途：</strong>用户偏好设置、表单草稿、缓存数据、UI 状态</li>
+          <li><strong>持久化：</strong> 数据在页面重新加载和浏览器重启后仍然保留</li>
+          <li><strong>序列化：</strong> 使用 JSON.stringify/parse 存储复杂对象</li>
+          <li><strong>存储限制：</strong> localStorage 通常每个域名有 5-10MB 的限制</li>
+          <li><strong>错误处理：</strong> 使用 try-catch 包裹以处理隐私浏览模式</li>
+          <li><strong>常见用途：</strong> 用户偏好设置、表单草稿、缓存数据、UI 状态</li>
         </ul>
         <button onClick={clearAllStorage} className="danger-btn">
           清空所有 localStorage 并重新加载

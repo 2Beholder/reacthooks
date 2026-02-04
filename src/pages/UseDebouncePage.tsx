@@ -105,11 +105,11 @@ const debouncedSearch = useDebounce(searchTerm, 500);`}</pre>
       <section className="notes">
         <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>用途：</strong>延迟昂贵的操作（API 调用、过滤等）</li>
-          <li><strong>性能：</strong>显著减少操作次数</li>
-          <li><strong>用户体验：</strong>比节流（throttling）响应更灵敏</li>
-          <li><strong>常见用例：</strong>搜索输入、表单验证、窗口大小调整处理</li>
-          <li><strong>清理：</strong>始终清除定时器以防止内存泄漏</li>
+          <li><strong>用途：</strong> 延迟昂贵的操作（API 调用、过滤等）</li>
+          <li><strong>性能：</strong> 显著减少操作次数</li>
+          <li><strong>用户体验：</strong> 比节流（throttling）响应更灵敏</li>
+          <li><strong>常见用例：</strong> 搜索输入、表单验证、窗口大小调整处理</li>
+          <li><strong>清理：</strong> 始终清除定时器以防止内存泄漏</li>
         </ul>
       </section>
     </div>

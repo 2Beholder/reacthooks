@@ -141,11 +141,11 @@ useEventListener('keydown', (event) => {
       <section className="notes">
         <h3>📝 关键要点：</h3>
         <ul>
-          <li><strong>自动清理：</strong>组件卸载时自动移除事件监听器</li>
-          <li><strong>使用 Ref 保存处理器：</strong>防止每次处理器变化时重新创建监听器</li>
-          <li><strong>类型安全：</strong>TypeScript 确保事件类型正确</li>
-          <li><strong>常见用途：</strong>键盘快捷键、窗口大小调整、滚动事件、鼠标跟踪</li>
-          <li><strong>性能：</strong>比直接在组件中添加监听器更好</li>
+          <li><strong>自动清理：</strong> 组件卸载时自动移除事件监听器</li>
+          <li><strong>使用 Ref 保存处理器：</strong> 防止每次处理器变化时重新创建监听器</li>
+          <li><strong>类型安全：</strong> TypeScript 确保事件类型正确</li>
+          <li><strong>常见用途：</strong> 键盘快捷键、窗口大小调整、滚动事件、鼠标跟踪</li>
+          <li><strong>性能：</strong> 比直接在组件中添加监听器更好</li>
         </ul>
       </section>
     </div>
